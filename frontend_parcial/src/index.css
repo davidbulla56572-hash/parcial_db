@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", sans-serif;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+@layer components {
+  .btn-base {
+    @apply inline-flex min-h-11 items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition sm:px-6;
+  }
+
+  .btn-dark {
+    @apply bg-slate-950 text-white hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70;
+  }
+
+  .btn-light {
+    @apply border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:text-slate-950;
+  }
+
+  .btn-danger {
+    @apply bg-rose-600 text-white hover:bg-rose-700 disabled:cursor-not-allowed disabled:opacity-70;
+  }
+
+  .btn-soft-danger {
+    @apply border border-rose-200 bg-rose-50 text-rose-700 hover:border-rose-300 hover:bg-rose-100;
+  }
+
+  .btn-glass {
+    @apply border border-white/15 bg-white/10 text-white hover:bg-white/20;
+  }
+
+  .modal-field {
+    @apply min-h-12 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none transition focus:border-slate-400;
+  }
+}
+
+.nav-card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(1.75rem - 1px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.12));
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.page-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.page-glow::before {
+  content: "";
+  position: absolute;
+  inset: auto auto 15% -4%;
+  width: 14rem;
+  height: 14rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+  filter: blur(24px);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.card-image-mask {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(15, 23, 42, 0.16)),
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0));
+}
